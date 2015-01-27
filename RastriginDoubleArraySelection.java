@@ -13,5 +13,9 @@ public class RastriginDoubleArraySelection implements OperationInterface {
 		}
 		return individuals;
 	}
+		
+	public boolean isEvaluation() {
+		return false;
+	}
 	
 }

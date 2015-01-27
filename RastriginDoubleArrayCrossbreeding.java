@@ -6,17 +6,18 @@ public class RastriginDoubleArrayCrossbreeding implements OperationInterface {
 	public RastriginDoubleArrayCrossbreeding() {};
 	
 	public ArrayList<Individual> run(ArrayList<Individual> individuals) {
-		int parents_end = individuals.size();
 		
-		for (int i = 0; i < parents_end - 1; i += 2) {			
-			RastriginDoubleArray mumsGenes = (RastriginDoubleArray) individuals.get(i).getGenotype();
+		for (int i = 0; i < individuals.size() - 1; ++i) {
+			RastriginDoubleArray momsGenes = (RastriginDoubleArray) individuals.get(i).getGenotype();
 			RastriginDoubleArray dadsGenes = (RastriginDoubleArray) individuals.get(i+1).getGenotype();
-			
-			Individual kid = new Individual(new RastriginDoubleArray(mumsGenes, dadsGenes));
+			Individual kid = new Individual(new RastriginDoubleArray(momsGenes, dadsGenes));
 			individuals.add(kid);
 		}
-		
 		return individuals;
+	}
+	
+	public boolean isEvaluation() {
+		return false;
 	}
 
 }
